@@ -10,13 +10,3 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  decrypt:
-    provider: sops
-    secretRef:
-      name: sops-keys
-  postBuild:
-    substituteFrom:
-    - kind: ConfigMap
-      name: external-settings
-    - kind: Secret
-      name: secret-settings
