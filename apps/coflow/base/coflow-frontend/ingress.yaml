@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: coflow-frontend
+  labels:
+    app: coflow-frontend
+spec:
+  ingressClassName: nginx  # Ajusta si usas otro controlador de Ingress
+  rules:
+  - host: coflow-frontend.local  # Cambia por tu dominio real
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: coflow-frontend
+            port:
+              number: 80

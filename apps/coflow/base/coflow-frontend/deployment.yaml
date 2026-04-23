@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coflow-frontend
+  labels:
+    app: coflow-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coflow-frontend
+  template:
+    metadata:
+      labels:
+        app: coflow-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: ghcr.io/jorgevizu4/frontend-web:main-c4ff6fa
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
