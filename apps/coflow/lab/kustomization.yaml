@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - ../../coflow/base
 - ghcr-secret.sops.yaml
+- db-secret.yaml
