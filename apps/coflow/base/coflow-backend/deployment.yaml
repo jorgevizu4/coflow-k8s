@@ -14,6 +14,8 @@ spec:
       labels:
         app: coflow-backend
     spec:
+      imagePullSecrets:
+      - name: ghcr-secret
       containers:
       - name: backend
         image: ghcr.io/jorgevizu4/backend:main-c4ff6fa
