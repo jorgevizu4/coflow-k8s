@@ -38,4 +38,4 @@ spec:
           valueFrom:
             secretKeyRef:
               name: db-secret
-              key: password
+              key: SPRING_DATASOURCE_PASSWORD
