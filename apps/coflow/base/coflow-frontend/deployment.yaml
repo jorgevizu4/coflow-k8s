@@ -18,7 +18,7 @@ spec:
       - name: ghcr-secret
       containers:
       - name: frontend
-        image: ghcr.io/jorgevizu4/frontend-web:main-c4ff6fa
+        image: ghcr.io/jorgevizu4/frontend-web:main-ff4f427
         ports:
         - containerPort: 80
         resources:
