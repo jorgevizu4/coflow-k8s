@@ -29,16 +29,12 @@ spec:
             memory: "256Mi"
             cpu: "500m"
       env:
-      - name: DB_HOST
-        value: "mysql" 
-      - name: DB_PORT
-        value: "3306"
-      - name: DB_USER
-        value: "root"
-      - name: DB_PASSWORD
+      - name: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://mysql-service:3306/coflow
+      - name: SPRING_DATASOURCE_USERNAME
+        value: root
+      - name: SPRING_DATASOURCE_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: mysql-secret
+            name: db-secret
             key: password
-      - name: DB_NAME
-        value: "coflow"
