@@ -28,3 +28,17 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "500m"
+      env:
+      - name: DB_HOST
+        value: "mysql" 
+      - name: DB_PORT
+        value: "3306"
+      - name: DB_USER
+        value: "root"
+      - name: DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: mysql-secret
+            key: password
+      - name: DB_NAME
+        value: "coflow"
