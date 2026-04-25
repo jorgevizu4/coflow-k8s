@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: coflow-backend
+  namespace: coflow
   labels:
     app: coflow-backend
 spec:
@@ -28,13 +29,13 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "500m"
-      env:
-      - name: SPRING_DATASOURCE_URL
-        value: jdbc:mysql://mysql-service:3306/coflow
-      - name: SPRING_DATASOURCE_USERNAME
-        value: root
-      - name: SPRING_DATASOURCE_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: db-secret
-            key: password
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql-service:3306/coflow
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: password
