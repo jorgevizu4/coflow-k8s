@@ -18,7 +18,7 @@ spec:
       - name: backend
         image: ghcr.io/jorgevizu4/backend:main-c4ff6fa
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
         resources:
           requests:
             memory: "128Mi"
