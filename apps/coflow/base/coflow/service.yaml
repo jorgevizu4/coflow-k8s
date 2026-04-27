@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: coflow-backend
+  name: coflow
   labels:
-    app: coflow-backend
+    app: coflow
 spec:
   selector:
-    app: coflow-backend
+    app: coflow
   ports:
   - port: 80
     targetPort: 80

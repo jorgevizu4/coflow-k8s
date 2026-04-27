@@ -29,35 +29,33 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "500m"
-        # env:
-        # - name: SPRING_DATASOURCE_URL
-        #   value: jdbc:mysql://mysql-service:3306/coflow
-        # - name: SPRING_DATASOURCE_USERNAME
-        #   value: root
-        # - name: SPRING_DATASOURCE_PASSWORD
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: db-secret
-        #       key: SPRING_DATASOURCE_PASSWORD
-        # - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-        #   value: update
-        # - name: SPRING_SQL_INIT_MODE
-        #   value: never
-        # - name: SPRING_JPA_SHOW_SQL
-        #   value: "true"
-        # - name: SPRING_DATA_REST_BASE_PATH
-        #   value: ""
-        # - name: SPRING_WEB_CORS_ALLOW_CREDENTIALS
-        #   value: "false"
-        # - name: SPRING_APPLICATION_NAME
-        #   value: backend
-        # - name: JWT_SECRET_KEY
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: db-secret
-        #       key: JWT_SECRET_KEY
-        # - name: JWT_EXPIRATION_MS
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: db-secret
-        #       key: JWT_EXPIRATION_MS
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql-service:3306/coflow
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: SPRING_DATASOURCE_PASSWORD
+        - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+          value: update
+        - name: SPRING_SQL_INIT_MODE
+          value: never
+        - name: SPRING_DATA_REST_BASE_PATH
+          value: ""
+        - name: SPRING_WEB_CORS_ALLOW_CREDENTIALS
+          value: "false"
+        - name: SPRING_APPLICATION_NAME
+          value: backend
+        - name: JWT_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: JWT_SECRET_KEY
+        - name: JWT_EXPIRATION_MS
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: JWT_EXPIRATION_MS
