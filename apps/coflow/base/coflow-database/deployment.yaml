@@ -18,6 +18,13 @@ spec:
           image: ghcr.io/jorgevizu4/database:main-cbd9fa1
           ports:
             - containerPort: 3306
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: root
