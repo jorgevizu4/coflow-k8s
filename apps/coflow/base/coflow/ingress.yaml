@@ -10,7 +10,7 @@ spec:
   - host: coflow-frontend.local  # Cambia por tu dominio real
     http:
       paths:
-      - path: /
+      - path: /login
         pathType: Prefix
         backend:
           service:
