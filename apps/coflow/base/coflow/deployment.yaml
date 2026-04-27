@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: coflow-backend
+        app: coflow
     spec:
       imagePullSecrets:
       - name: ghcr-secret
@@ -21,7 +21,7 @@ spec:
       - name: coflow
         image: ghcr.io/jorgevizu4/coflow:main-8ef883f
         ports:
-        - containerPort: 8081
+        - containerPort: 80
         resources:
           requests:
             memory: "128Mi"
