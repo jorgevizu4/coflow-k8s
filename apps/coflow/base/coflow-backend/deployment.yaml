@@ -31,7 +31,7 @@ spec:
             cpu: "500m"
         env:
         - name: SPRING_DATASOURCE_URL
-          value: jdbc:mysql://mysql.coflow.svc.cluster.local:3306/coflow
+          value: jdbc:mysql://mysql-service:3306/coflow
         - name: SPRING_DATASOURCE_USERNAME
           value: root
         - name: SPRING_DATASOURCE_PASSWORD
