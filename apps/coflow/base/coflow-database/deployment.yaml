@@ -32,7 +32,3 @@ spec:
               value: root
             - name: MYSQL_DATABASE
               value: coflow
-            - name: MYSQL_USER
-              value: root
-            - name: MYSQL_PASSWORD
-              value: root
