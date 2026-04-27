@@ -5,9 +5,9 @@ metadata:
   labels:
     app: coflow
 spec:
-  ingressClassName: nginx  # Ajusta si usas otro controlador de Ingress
+  ingressClassName: nginx 
   rules:
-  - host: 192.168.49.2  # Cambia por tu dominio real
+  - host: 192.168.49.2 
     http:
       paths:
       - path: /login
