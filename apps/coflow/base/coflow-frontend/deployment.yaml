@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: coflow-frontend
+  name: coflow
   labels:
-    app: coflow-frontend
+    app: coflow
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: coflow-frontend
+      app: coflow
   template:
     metadata:
       labels:
-        app: coflow-frontend
+        app: coflow
     spec:
       imagePullSecrets:
       - name: ghcr-secret
@@ -28,6 +28,23 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "200m"
-      env: 
-      - name: VITE_API_URL
-        value: http://coflow-backend:8081
+      - name: backend
+        image: ghcr.io/jorgevizu4/backend:main-cbd9fa1
+        ports:
+        - containerPort: 8081
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:mysql://mysql.coflow.svc.cluster.local:3306/coflow?useSSL=false&allowPublicKeyRetrieval=true"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: root
+        - name: JWT_SECRET_KEY
+          value: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970

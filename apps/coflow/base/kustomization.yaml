@@ -5,6 +5,6 @@ resources:
 - namespace.yaml
 - network-policy.yaml
 # - ./coflow-backend/
-# - ./coflow-frontend/
-# - ./coflow-database/
-- ./coflow/
+- ./coflow-frontend/
+- ./coflow-database/
+# - ./coflow/

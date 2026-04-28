@@ -1,18 +1,28 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: coflow
-  namespace: coflow
-spec:
-  ingressClassName: nginx 
-  rules:
-  - host: coflow.192.168.49.2.nip.io
-    http:
+apiVersion: networking.k8s.io/v1                                                                                     
+kind: Ingress                                                                                                        
+metadata:                                                                                                            
+    name: coflow-ingress                                                                                               
+    labels:                                                                                                            
+      app: coflow                                                                                                      
+    annotations:                                                                                                       
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:                                                                                                                
+  ingressClassName: nginx
+  rules:                                                                                                             
+  - host: coflow-frontend.local
+    http:                                                                                                            
       paths:
-      - path: /
-        pathType: Prefix
+      - path: /api(/|$)(.*)                                                                                          
+        pathType: ImplementationSpecific                                                                             
         backend:
+          service:                                                                                                   
+            name: coflow-backend
+            port:                                                                                                    
+              number: 8081
+      - path: /                                                                                                      
+        pathType: Prefix
+        backend:                                                                                                     
           service:
-            name: coflow
-            port:
+            name: coflow-frontend
+            port:                                                                                                    
               number: 80

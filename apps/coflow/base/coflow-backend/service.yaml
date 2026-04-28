@@ -6,7 +6,7 @@ metadata:
     app: coflow-backend
 spec:
   selector:
-    app: coflow-backend
+    app: coflow
   ports:
   - port: 8081
     targetPort: 8081
