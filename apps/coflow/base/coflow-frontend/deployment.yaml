@@ -18,20 +18,9 @@ spec:
       - name: ghcr-secret
       initContainers:
       - name: wait-for-db
-        image: busybox:1.36
-        command: ['sh', '-c', 'until nc -w 1 mysql.coflow.svc.cluster.local 3306 </dev/null; do echo waiting for database; sleep 2; done']
+        image: mysql:8.0
+        command: ['sh', '-c', 'until mysqladmin ping -h mysql.coflow.svc.cluster.local -uroot -proot --silent; do echo waiting for database; sleep 2; done']
       containers:
-      - name: frontend
-        image: ghcr.io/jorgevizu4/frontend-web:main-fea7bf0
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "50m"
-          limits:
-            memory: "128Mi"
-            cpu: "200m"
       - name: backend
         image: ghcr.io/jorgevizu4/backend:main-fea7bf0
         ports:
@@ -52,3 +41,14 @@ spec:
           value: root
         - name: JWT_SECRET_KEY
           value: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      - name: frontend
+        image: ghcr.io/jorgevizu4/frontend-web:main-fea7bf0
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
