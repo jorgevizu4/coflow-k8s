@@ -27,8 +27,9 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "500m"
+          tty: true
           env:
           - name: MYSQL_DATABASE
             value: coflow
-          - name: MYSQL_ROOT_PASSWORD
-            value: root
+          - name: MYSQL_ALLOW_EMPTY_PASSWORD
+            value: "1"
