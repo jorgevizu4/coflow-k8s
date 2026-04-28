@@ -16,10 +16,6 @@ spec:
     spec:
       imagePullSecrets:
       - name: ghcr-secret
-      initContainers:
-      - name: wait-for-db
-        image: mysql:8.0
-        command: ['sh', '-c', 'until mysqladmin ping -h mysql.coflow.svc.cluster.local -uroot -proot --silent; do echo waiting for database; sleep 2; done']
       containers:
       - name: backend
         image: ghcr.io/jorgevizu4/backend:main-fea7bf0
