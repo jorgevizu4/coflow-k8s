@@ -17,7 +17,7 @@ spec:
       - name: ghcr-secret
       containers:
         - name: mysql
-          image: ghcr.io/jorgevizu4/database:main-cbd9fa1
+          image: ghcr.io/jorgevizu4/database:main-fea7bf0
           ports:
             - containerPort: 3306
           resources:

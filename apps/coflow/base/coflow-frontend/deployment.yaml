@@ -18,7 +18,7 @@ spec:
       - name: ghcr-secret
       containers:
       - name: frontend
-        image: ghcr.io/jorgevizu4/frontend-web:main-cbd9fa1
+        image: ghcr.io/jorgevizu4/frontend-web:main-fea7bf0
         ports:
         - containerPort: 80
         resources:
@@ -29,7 +29,7 @@ spec:
             memory: "128Mi"
             cpu: "200m"
       - name: backend
-        image: ghcr.io/jorgevizu4/backend:main-cbd9fa1
+        image: ghcr.io/jorgevizu4/backend:main-fea7bf0
         ports:
         - containerPort: 8081
         resources:
