@@ -28,13 +28,7 @@ spec:
               memory: "256Mi"
               cpu: "500m"
           env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: root
           - name: MYSQL_DATABASE
             value: coflow
-          - name: SPRING_DATASOURCE_URL
-            value: "jdbc:mysql://mysql.coflow.svc.cluster.local:3306/coflow?useSSL=false&allowPublicKeyRetrieval=true"
-          - name: SPRING_DATASOURCE_USERNAME
-            value: root
-          - name: SPRING_DATASOURCE_PASSWORD
+          - name: MYSQL_ROOT_PASSWORD
             value: root
