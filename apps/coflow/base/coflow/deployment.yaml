@@ -19,7 +19,7 @@ spec:
       - name: ghcr-secret
       containers:
       - name: coflow
-        image: ghcr.io/jorgevizu4/coflow:main-5ae03ac
+        image: ghcr.io/jorgevizu4/coflow:main-ba39a5d
         ports:
         - containerPort: 80
         resources:
