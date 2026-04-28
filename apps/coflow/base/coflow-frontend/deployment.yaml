@@ -19,7 +19,7 @@ spec:
       initContainers:
       - name: wait-for-db
         image: busybox:1.36
-        command: ['sh', '-c', 'until nc -w 2 mysql.coflow.svc.cluster.local 3306 < /dev/null; do echo waiting for database; sleep 2; done']
+        command: ['sh', '-c', 'until nc -z -w 2 mysql.coflow.svc.cluster.local 3306; do echo waiting for database; sleep 2; done']
       containers:
       - name: backend
         image: ghcr.io/jorgevizu4/backend:main-fea7bf0
